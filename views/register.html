@@ -1,0 +1,37 @@
+{%extends "base.html" %}
+
+{%block head%}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-2"></div>
+        <div class="display-4 col-lg-8">Register New User</div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <form method='POST' action='/users/add' enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your Name with anyone else.</div> -->
+                </div>  
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" required>
+                </div>
+                <div class="mb-3">
+                    <div class="form-label" for="images">Please select 3 Photos of your face</div>
+                    <input class="custom-file-input" type="file" name="images" id="images" accept="image/*" required="true" multiple="true"/>
+                    <div id="emailHelp" class="form-text">We'll never share your Photos with anyone else.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+{%endblock%}

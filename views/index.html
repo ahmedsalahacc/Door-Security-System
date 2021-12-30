@@ -1,0 +1,50 @@
+{%extends "base.html" %}
+
+{%block head%}
+
+<div class="container">
+    <!-- Table -->
+    <div class="container">
+        <div class="shift-table" id="table">
+            <div class="row">
+                <h1 class="text-center">Security with SecureX</h1>
+            </div>
+            <div class="row">
+                {%if table|length==0%}
+                <h2 class="text-center">No Logs to show</h2>
+                {%else%}
+                <table class="table flex table-dark table-striped center-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date and time</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in table %}
+                            {%if record['accepted']%}
+                                <tr>
+                                    <th scope="row"> <a href="/log/{{record['id']}}">{{record.user['id']}}</a></th>
+                                    <td>{{record.user.name}}</td>
+                                    <td>{{record['dateCreated']}}</td>
+                                    <td>{{record['accepted']}} </td>
+                                </tr>
+                            {%else%}
+                            <tr>
+                                <th scope="row"> <a class="red" href="/log/{{record['id']}}">X</a></th>
+                                <td class="red">USER NOT VERIFIED</td>
+                                <td>{{record['dateCreated']}}</td>
+                                <td class="red">{{record['accepted']}} </td>
+                            </tr>
+                            {%endif%}
+                        {%endfor%}
+                    </tbody>
+                </table>
+                </div>
+                {%endif%}
+            </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,60 @@
+{%extends "base.html" %}
+
+{%block head%}
+<div class="container">
+    <div class="row text-center">
+        <div class="container">
+            <div class="display-4">
+                Showing Log {{log['id']}}
+            </div>
+            <hr>
+            <br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+
+            <div class="card flex flex-center" style="width: 35rem;">
+                <img  src="{{url_for('static', filename='cara.jpg')}}" class="card-img-top" alt=".img">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="username" class="form-label"><strong>ID: </strong> <span>
+                                {%if log['accepted']%}
+                                    {{log.user['id']}}
+                                {%else%}
+                                    <span class="red">User Not Verified</span>
+                                {%endif%}
+                            </span></label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="username" class="form-label"><strong>Username: </strong> <span>
+                                {%if log['accepted']%}
+                                    {{log.user['name']}}
+                                {%else%}
+                                    <span class="red">User Not Verified</span>
+                                {%endif%}
+                            </span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="username" class="form-label"><strong>Date: </strong> <span>{{log['dateCreated']}}</span></label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="username" class="form-label"><strong>Status: </strong> <span>{{log['accepted']}}</span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="/"  class="btn btn-link float-left">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</form>
+
+</div>
+{%endblock%}

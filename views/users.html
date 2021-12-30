@@ -1,0 +1,38 @@
+{%extends "base.html" %}
+
+{%block head%}
+
+<div class="container">
+    <!-- Table -->
+    <div class="container">
+        <div class="shift-table" id="table">
+            <div class="row">
+                <h1 class="text-center">Security with SecureX</h1>
+            </div>
+            <div class="row">
+                {%if users|length==0%}
+                <h2 class="text-center">No Users to show</h2>
+                {%else%}
+                <table class="table flex table-dark table-striped center-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <th scope="row"> <a href="/users/{{user['id']}}">{{user['id']}}</a></th>
+                                <td>{{user['name']}}</td>
+                            </tr>
+                           
+                        {%endfor%}
+                    </tbody>
+                </table>
+                </div>
+                {%endif%}
+            </div>
+    </div>
+</div>
+{%endblock%}

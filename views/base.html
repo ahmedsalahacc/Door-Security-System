@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <title>Door Security</title>
+</head>
+<!-- style -->
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+
+    body{
+        min-height: 100vh;
+        background-color: #fff;
+    }
+
+    .sidebar{
+        width:250px;
+        height: 100vh;
+        position: absolute;
+        transition: 0.4s;
+    }
+
+    .nav-link{
+        font-size: 1.1rem;
+    }
+
+    .nav-link:hover{
+        text-decoration: double;
+    }
+
+    .center-table{
+        margin-top: 10vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .btn-collapse{
+        position: absolute;
+        z-index: 1;
+        display: flex-end;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: #fff;
+    }
+
+    .shift-table{
+        margin-left: 10%;
+    }
+
+    .limit__sz{
+        /* max-height: 10%; */
+        max-width: 10%;
+        display: flex;
+        flex: end;
+    }
+
+    td{
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+    .red{
+        color: rgb(155, 44, 44);
+        font-weight: 700;
+    }
+</style>
+
+<!-- Body -->
+<body>
+    <!-- Sidebar -->
+    <button class="btn-collapse btn btn-md btn-dark" id="collapse">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <nav class="navbar-collapse sidebar navbar navbar-expand d-flex flex-column align-item-start navbar-dark bg-dark" id="sidebar">
+            <br>
+            <br>
+            <a href="/" class="navbar-brand text-light">
+                <div class="display-6">SecureX</div>
+            </a>
+            <br>
+            <div class="container">
+                <ul class="navbar-nav d-flex flex-column w-100">
+                    <li class="nav-item w-100">
+                        <a href="/" class="nav-link text-light pl-4">
+                            Logs
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="/users/add" class="nav-link text-light pl-4">
+                            Add User
+                        </a>
+                    </li>
+                    <li class="nav-item w-100">
+                        <a href="/users" class="nav-link text-light pl-4">
+                            Users Info
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    <!-- Editable part -->
+    <div class="container">
+        <br><br>
+        {% block head %}
+        {% endblock %}
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const hamBtn = document.getElementById("collapse")
+        const toggleSidebar = ()=>{
+            const table = document.getElementById('table')
+            const sidebar = document.getElementById("sidebar")
+            console.log("clicked")
+            sidebar.classList.toggle('d-none')
+            table.classList.toggle('shift-table')
+        }
+
+        hamBtn.addEventListener("click", toggleSidebar)
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+{%extends "base.html" %}
+
+{%block head%}
+<div class="container">
+    <div class="row text-center">
+        <div class="container">
+            <div class="display-4">
+                Showing user {{user['id']}}
+            </div>
+            <hr>
+            <br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+
+            <div class="card flex flex-center" style="width: 35rem;">
+                <img  src="{{url_for('static', filename=photo_path)}}" class="card-img-top" alt=".img">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="username" class="form-label"><strong>ID: </strong> <span>
+                                    {{user['id']}}
+
+                            </span></label>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="username" class="form-label"><strong>Username: </strong> <span>
+                                    {{user['name']}}
+                            </span></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="/users"  class="btn btn-link float-left">Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</form>
+
+</div>
+{%endblock%}
